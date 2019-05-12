@@ -54,6 +54,7 @@ class WorkoutRepository {
             let filtered = samples.compactMap { $0 as? HKWorkout }
                                   .filter { cal.component(.year, from: $0.endDate) == currentYear }
 
+            print("[WorkoutRepository] Loaded \(filtered.count) workouts")
             completion(filtered)
         })
 

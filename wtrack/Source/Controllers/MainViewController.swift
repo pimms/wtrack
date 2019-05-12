@@ -37,8 +37,6 @@ class MainViewController: UIViewController {
         self.workoutRepository = workoutRepository
         self.goalRepository = goalRepository
         super.init(nibName: nil, bundle: nil)
-
-        // workoutRepository.fetchAllWorkouts()
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -72,6 +70,13 @@ class MainViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo:view.bottomAnchor)
         ])
+    }
+
+    // MARK: - Public methods
+
+    func reloadWorkoutData() {
+        print("[MainViewController] Reloading workout data")
+        tableView.reloadData()
     }
 }
 
