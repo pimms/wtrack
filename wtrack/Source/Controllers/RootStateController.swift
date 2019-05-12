@@ -7,27 +7,37 @@ import HealthKit
 
 class RootStateController: UIViewController {
 
+    // MARK: - Private properties
+
+    private let healthStore = HKHealthStore()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentAuthorizationViewController()
+        view.backgroundColor = .red
+        requestHealthKitAccess()
     }
 
     // MARK: - Private methods
 
-    private func presentAuthorizationViewController() {
-        let authVc = AuthorizationViewController()
-        authVc.delegate = self
-        add(authVc)
+    private func requestHealthKitAccess() {
+        let toRead = Set(arrayLiteral: HKWorkoutType.workoutType())
+
+        healthStore.requestAuthorization(toShare: nil, read: toRead, completion: { [weak self] success, err in
+            if success {
+                DispatchQueue.main.async { [weak self] in
+                    self?.presentMainViewController()
+                }
+            } else {
+                print("HealthKit authorization failed: \(err)")
+            }
+        })
     }
-}
 
-extension RootStateController: AuthorizationViewControllerDelegate {
-    func authorizationViewController(_ vc: AuthorizationViewController, configuredStore store: HKHealthStore) {
-        remove(vc)
-
-        let mainVc = MainViewController()
+    private func presentMainViewController() {
+        let workoutRepo = WorkoutRepository(healthStore: healthStore)
+        let mainVc = MainViewController(workoutRepository: workoutRepo)
         add(mainVc)
     }
 }
