@@ -111,7 +111,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController {
     private func calculateYearlyProgress() -> YearlyProgressViewModel {
         let goalDistance = goalRepository.kilometersPerWeek * 52
-        let viewModel = YearlyProgressViewModel(distanceRan: 100, goalDistance: Float(goalDistance))
+        let curDistance = workoutRepository.totalKilometersThisYear
+        let viewModel = YearlyProgressViewModel(distanceRan: curDistance, goalDistance: Float(goalDistance))
         return viewModel
     }
 }

@@ -15,7 +15,6 @@ class RootStateController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         requestHealthKitAccess()
     }
 
@@ -25,21 +24,19 @@ class RootStateController: UIViewController {
         let toRead = Set(arrayLiteral: HKWorkoutType.workoutType())
 
         healthStore.requestAuthorization(toShare: nil, read: toRead, completion: { [weak self] success, err in
-            if success {
-                DispatchQueue.main.async { [weak self] in
-                    self?.presentMainViewController()
+            if success, let healthStore = self?.healthStore {
+                let workoutRepo = WorkoutRepository(healthStore: healthStore)
+                let goalRepo = GoalRepository()
+
+                workoutRepo.loadWorkouts {
+                    DispatchQueue.main.async { [weak self] in
+                        let mainVc = MainViewController(workoutRepository: workoutRepo, goalRepository: goalRepo)
+                        self?.add(mainVc)
+                    }
                 }
             } else {
                 print("HealthKit authorization failed: \(err)")
             }
         })
-    }
-
-    private func presentMainViewController() {
-        let workoutRepo = WorkoutRepository(healthStore: healthStore)
-        let goalRepo = GoalRepository()
-
-        let mainVc = MainViewController(workoutRepository: workoutRepo, goalRepository: goalRepo)
-        add(mainVc)
     }
 }
