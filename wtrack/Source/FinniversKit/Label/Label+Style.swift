@@ -11,6 +11,7 @@ extension Label {
         case title3
         case title4
         case body
+        case detail
 
         var font: UIFont {
             switch self {
@@ -19,6 +20,7 @@ extension Label {
             case .title3: return UIFont.title3
             case .title4: return UIFont.title4
             case .body: return UIFont.body
+            case .detail: return UIFont.detail
             }
         }
 

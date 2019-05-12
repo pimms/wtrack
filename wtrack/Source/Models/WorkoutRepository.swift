@@ -19,6 +19,30 @@ class WorkoutRepository {
         return Float(distance)
     }
 
+    var weeklyDistanceThisYear: [(Int, Float)] {
+        var dict = Dictionary(grouping: workouts) {
+            Calendar.current.component(.weekOfYear, from: $0.endDate)
+        }.mapValues { (weekGroup: [HKWorkout]) -> Float in
+            weekGroup.reduce(0, { (result, workout) -> Float in
+                let v = result + Float(workout.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0
+                return Float(v)
+            })
+        }
+
+        // Ensure all weeks up until the current are present in the map
+        let currentWeek = Calendar.current.component(.weekOfYear, from: Date())
+        for i in 1...currentWeek {
+            if !dict.keys.contains(where: { $0 == i }) {
+                dict[i] = 0
+            }
+        }
+
+        // Sort it & ship it
+        return dict.sorted { t1, t2 -> Bool in
+            t1.key < t2.key
+        }
+    }
+
     // MARK: - Private properties
 
     private let healthStore: HKHealthStore

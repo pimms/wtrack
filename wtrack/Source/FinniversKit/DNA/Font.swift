@@ -27,7 +27,7 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 16)
     }
 
-    static var caption: UIFont {
-        return UIFont.systemFont(ofSize: 14)
+    static var detail : UIFont {
+        return UIFont.italicSystemFont(ofSize: 14)
     }
 }
