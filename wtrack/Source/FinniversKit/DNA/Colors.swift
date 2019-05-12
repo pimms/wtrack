@@ -14,7 +14,7 @@ extension UIColor {
     }
 
     public class var defaultText: UIColor {
-        return UIColor(r: 200, g: 200, b: 200)
+        return .black
     }
 
     public class var inverseText: UIColor {
@@ -50,4 +50,17 @@ extension UIColor {
         return UIColor(r: 145, g: 30, b: 27)
     }
 
+    // MARK: - General Palette
+
+    public class var steel: UIColor {
+        return UIColor(r: 242, g: 242, b: 242)
+    }
+
+    public class var candyPink: UIColor {
+        return UIColor(r: 224, g: 49, b: 97)
+    }
+
+    public class var candyGreen: UIColor {
+        return UIColor(r: 168, g: 220, b: 78)
+    }
 }

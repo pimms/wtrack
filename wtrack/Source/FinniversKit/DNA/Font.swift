@@ -20,7 +20,7 @@ extension UIFont {
     }
 
     static var title4: UIFont {
-        return UIFont.systemFont(ofSize: 22)
+        return UIFont.boldSystemFont(ofSize: 16)
     }
 
     static var body: UIFont {
@@ -29,9 +29,5 @@ extension UIFont {
 
     static var caption: UIFont {
         return UIFont.systemFont(ofSize: 14)
-    }
-
-    static var title5: UIFont {
-        return UIFont.systemFont(ofSize: 12)
     }
 }

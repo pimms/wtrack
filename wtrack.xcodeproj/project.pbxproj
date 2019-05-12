@@ -14,14 +14,18 @@
 		65BAA426C8B23248E0E4CD21 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA9B2808A5BF253E376CA /* Font.swift */; };
 		65BAA55591071AB4688972DB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA8AC0ACD099E571CC158 /* UIColor.swift */; };
 		65BAA5604F287CA61765EE7B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAE09E79F9B6713D7F15B /* Data.swift */; };
+		65BAA58071A3A7860342EA86 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA9AE97B2887B75FEDBCB /* BarView.swift */; };
+		65BAA5A5DF7DFC10199A22DD /* YearlyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA724D3794ADCAF792631 /* YearlyProgressView.swift */; };
 		65BAA5C6BF6A9FE1E3FB0506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BAA19D993CFB6E1E37EB50 /* Main.storyboard */; };
 		65BAA5F522CEC829E7E38638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BAA807C85825909357B7A8 /* LaunchScreen.storyboard */; };
+		65BAA6B7D20077CF52F7722B /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAE74603A5BA7E969B546 /* PanelView.swift */; };
 		65BAA7E19EAC4CF321BFBE87 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAB2E5DD4B68E25B6B096 /* Identifiable.swift */; };
 		65BAA7E5F68A1C2A7CD34783 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA8B6A1CAC7F22525D8E1 /* Colors.swift */; };
 		65BAA7F3BCE46B72D5A3A835 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAB1E385B5ED4A3C4852B /* String.swift */; };
 		65BAA80945A428D3927A58D3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA2830379475FDD461C2A /* Button.swift */; };
 		65BAA8115D181CAB11310639 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA2EC669D6B424E30C881 /* UIAlertController.swift */; };
 		65BAA847C3FAA79725B44717 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA63307BD5663DDD89F8C /* MainViewController.swift */; };
+		65BAA902C2FCCD710B07B111 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA84538E154FCA2E21D81 /* ProgressBarView.swift */; };
 		65BAA91637EB66412C902519 /* RootStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA071F5C535C913978E86 /* RootStateController.swift */; };
 		65BAA93563A74E89B7224742 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA4531E72BB1B2AB2E966 /* UIApplication.swift */; };
 		65BAA9C1A181B530F05DFF33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA5E91C65B82977748B10 /* AppDelegate.swift */; };
@@ -49,13 +53,16 @@
 		65BAA4531E72BB1B2AB2E966 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		65BAA5E91C65B82977748B10 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65BAA63307BD5663DDD89F8C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		65BAA724D3794ADCAF792631 /* YearlyProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyProgressView.swift; sourceTree = "<group>"; };
 		65BAA807C85825909357B7A8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65BAA84538E154FCA2E21D81 /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		65BAA890BF2784CEEF5ECC93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65BAA8AC0ACD099E571CC158 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		65BAA8B6A1CAC7F22525D8E1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		65BAA9483F7A4EAF187DC6A8 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		65BAA960CB17A1815ED617EC /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		65BAA99F8030272F3A4F15A0 /* Label+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Label+Style.swift"; sourceTree = "<group>"; };
+		65BAA9AE97B2887B75FEDBCB /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		65BAA9B2808A5BF253E376CA /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		65BAAA57D8DD0E1C446FCB0E /* WorkoutRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutRepository.swift; sourceTree = "<group>"; };
 		65BAAA648FC85EE04EEAAC73 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
@@ -63,6 +70,7 @@
 		65BAAB2E5DD4B68E25B6B096 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		65BAAD129B8D0B0D3EAAEF80 /* Spacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		65BAAE09E79F9B6713D7F15B /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		65BAAE74603A5BA7E969B546 /* PanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,7 @@
 				65BAA1EDF01945A6189E1E95 /* Controllers */,
 				65BAA1A60375C7682499B00F /* Core */,
 				65BAA7EE6DB317C007D644FB /* Models */,
+				65BAAA7CFA721C5A3C38E5D6 /* Views */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -247,6 +256,17 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		65BAAA7CFA721C5A3C38E5D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65BAAE74603A5BA7E969B546 /* PanelView.swift */,
+				65BAA724D3794ADCAF792631 /* YearlyProgressView.swift */,
+				65BAA9AE97B2887B75FEDBCB /* BarView.swift */,
+				65BAA84538E154FCA2E21D81 /* ProgressBarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,6 +364,10 @@
 				65BAA9C1A181B530F05DFF33 /* AppDelegate.swift in Sources */,
 				65BAA91637EB66412C902519 /* RootStateController.swift in Sources */,
 				65BAA226D0AC7677BF8A278F /* WorkoutRepository.swift in Sources */,
+				65BAA6B7D20077CF52F7722B /* PanelView.swift in Sources */,
+				65BAA5A5DF7DFC10199A22DD /* YearlyProgressView.swift in Sources */,
+				65BAA58071A3A7860342EA86 /* BarView.swift in Sources */,
+				65BAA902C2FCCD710B07B111 /* ProgressBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

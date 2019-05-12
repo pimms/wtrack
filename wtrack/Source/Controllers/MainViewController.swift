@@ -13,12 +13,21 @@ class MainViewController: UIViewController {
 
     // MARK: - UI properties
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private lazy var titleLabel: Label = {
+        let label = Label(style: .title1)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .title1
         label.text = "Run Tracker"
         return label
+    }()
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.dataSource = self
+        tableView.allowsSelection = false
+        return tableView
     }()
 
     // MARK: - Init
@@ -47,12 +56,50 @@ class MainViewController: UIViewController {
 
     private func setup() {
         view.backgroundColor = .white
+
         view.addSubview(titleLabel)
+        view.addSubview(tableView)
+
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .mediumLargeSpacing),
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .mediumLargeSpacing),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -.mediumLargeSpacing),
+
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .largeSpacing),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo:view.bottomAnchor)
         ])
     }
 }
 
+extension MainViewController: UITableViewDataSource {
+
+    private enum TableContent: Int, CaseIterable {
+        case yearlyProgress
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return TableContent.allCases.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+
+        let progressView = YearlyProgressView(viewModel: YearlyProgressViewModel(distanceRan: 100, goalDistance: 200))
+        cell.contentView.addSubview(progressView)
+        progressView.fillInSuperview(insets: UIEdgeInsets(top: 0, left: .mediumLargeSpacing, bottom: 0, right: -.mediumLargeSpacing))
+        return cell
+    }
+
+    private func contentView(forIndexPath indexPath: IndexPath) -> UIView {
+        guard let content = TableContent.allCases.filter({ $0.rawValue == indexPath.row }).first else {
+            fatalError()
+        }
+
+        switch content {
+        case .yearlyProgress:
+            return YearlyProgressView(viewModel: YearlyProgressViewModel(distanceRan: 100, goalDistance: 200))
+        }
+    }
+}

@@ -10,7 +10,6 @@ extension Label {
         case title2
         case title3
         case title4
-        case title5
         case body
 
         var font: UIFont {
@@ -19,7 +18,6 @@ extension Label {
             case .title2: return UIFont.title2
             case .title3: return UIFont.title3
             case .title4: return UIFont.title4
-            case .title5: return UIFont.title5
             case .body: return UIFont.body
             }
         }
