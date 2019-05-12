@@ -12,6 +12,7 @@ class RootStateController: UIViewController {
     private let healthStore = HKHealthStore()
     private var workoutRepository: WorkoutRepository?
     private var mainViewController: MainViewController?
+    private var hasEnteredBackground = false
 
     // MARK: - Lifecycle
 
@@ -23,6 +24,14 @@ class RootStateController: UIViewController {
                                                selector: #selector(applicationDidBecomeActive),
                                                name: UIApplication.didBecomeActiveNotification,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationWillResignActive),
+                                               name: UIApplication.willResignActiveNotification,
+                                               object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Private methods
@@ -51,10 +60,17 @@ class RootStateController: UIViewController {
     }
 
     @objc private func applicationDidBecomeActive() {
-        self.workoutRepository?.loadWorkouts { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.mainViewController?.reloadWorkoutData()
+        if hasEnteredBackground {
+            print("[RootStateController] Application did become active")
+            self.workoutRepository?.loadWorkouts { [weak self] in
+                DispatchQueue.main.async { [weak self] in
+                    self?.mainViewController?.reloadWorkoutData()
+                }
             }
         }
+    }
+
+    @objc private func applicationWillResignActive() {
+        hasEnteredBackground = true
     }
 }
