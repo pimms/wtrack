@@ -6,6 +6,18 @@ import UIKit
 
 class ProgressBarView: UIView {
 
+    // MARK: - Internal properties
+
+    var markerFraction: CGFloat? {
+        didSet {
+            if markerFraction == nil {
+                markerLayer.isHidden = true
+            } else {
+                updateMarkerLayer()
+            }
+        }
+    }
+
     // MARK: - Private properties
 
     private let doneColor: UIColor
@@ -24,6 +36,14 @@ class ProgressBarView: UIView {
         let bar = BarView(color: doneColor)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
+    }()
+
+    private lazy var markerLayer: CALayer = {
+        let layer = CALayer()
+        layer.backgroundColor = UIColor.darkGray.cgColor
+        layer.bounds = CGRect(x: 0, y: 0, width: 1.0, height: BarView.barHeight + 4.0)
+        layer.cornerRadius = 1.0
+        return layer
     }()
 
     // MARK: - Init
@@ -64,5 +84,34 @@ class ProgressBarView: UIView {
             doneBar.bottomAnchor.constraint(equalTo: bottomAnchor),
             doneBar.widthAnchor.constraint(equalTo: fullBar.widthAnchor, multiplier: progress)
         ])
+    }
+
+    // MARK: - Lifecycle
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        if markerFraction != nil {
+            updateMarkerLayer()
+        }
+    }
+
+    // MARK: - Private methods
+
+    private func updateMarkerLayer() {
+        guard let fraction = markerFraction else {
+            markerLayer.isHidden = true
+            return
+        }
+
+        markerLayer.isHidden = false
+        if markerLayer.superlayer == nil {
+            layer.addSublayer(markerLayer)
+        }
+
+        let origin = fullBar.frame.origin
+        let position = CGPoint(x: origin.x - 1.0 + fraction*fullBar.frame.width,
+                               y: origin.y + 0.5*fullBar.frame.height)
+        markerLayer.position = position
     }
 }

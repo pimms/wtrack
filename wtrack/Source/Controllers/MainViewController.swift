@@ -10,6 +10,7 @@ class MainViewController: UIViewController {
     // MARK: - Private properties
 
     private let workoutRepository: WorkoutRepository
+    private let goalRepository: GoalRepository
 
     // MARK: - UI properties
 
@@ -32,8 +33,9 @@ class MainViewController: UIViewController {
 
     // MARK: - Init
 
-    init(workoutRepository: WorkoutRepository) {
+    init(workoutRepository: WorkoutRepository, goalRepository: GoalRepository) {
         self.workoutRepository = workoutRepository
+        self.goalRepository = goalRepository
         super.init(nibName: nil, bundle: nil)
 
         // workoutRepository.fetchAllWorkouts()
@@ -86,9 +88,9 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
-        let progressView = YearlyProgressView(viewModel: YearlyProgressViewModel(distanceRan: 100, goalDistance: 200))
-        cell.contentView.addSubview(progressView)
-        progressView.fillInSuperview(insets: UIEdgeInsets(top: 0, left: .mediumLargeSpacing, bottom: 0, right: -.mediumLargeSpacing))
+        let cellContentView = contentView(forIndexPath: indexPath)
+        cell.contentView.addSubview(cellContentView)
+        cellContentView.fillInSuperview(insets: UIEdgeInsets(top: 0, left: .mediumLargeSpacing, bottom: 0, right: -.mediumLargeSpacing))
         return cell
     }
 
@@ -99,7 +101,17 @@ extension MainViewController: UITableViewDataSource {
 
         switch content {
         case .yearlyProgress:
-            return YearlyProgressView(viewModel: YearlyProgressViewModel(distanceRan: 100, goalDistance: 200))
+            return YearlyProgressView(viewModel: calculateYearlyProgress())
         }
+    }
+}
+
+// MARK: - Yearly Progress
+
+extension MainViewController {
+    private func calculateYearlyProgress() -> YearlyProgressViewModel {
+        let goalDistance = goalRepository.kilometersPerWeek * 52
+        let viewModel = YearlyProgressViewModel(distanceRan: 100, goalDistance: Float(goalDistance))
+        return viewModel
     }
 }

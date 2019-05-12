@@ -37,7 +37,9 @@ class RootStateController: UIViewController {
 
     private func presentMainViewController() {
         let workoutRepo = WorkoutRepository(healthStore: healthStore)
-        let mainVc = MainViewController(workoutRepository: workoutRepo)
+        let goalRepo = GoalRepository()
+
+        let mainVc = MainViewController(workoutRepository: workoutRepo, goalRepository: goalRepo)
         add(mainVc)
     }
 }

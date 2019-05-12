@@ -25,6 +25,7 @@
 		65BAA80945A428D3927A58D3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA2830379475FDD461C2A /* Button.swift */; };
 		65BAA8115D181CAB11310639 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA2EC669D6B424E30C881 /* UIAlertController.swift */; };
 		65BAA847C3FAA79725B44717 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA63307BD5663DDD89F8C /* MainViewController.swift */; };
+		65BAA876C20B0A5736AF38B8 /* GoalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA0AAF706383214E49F62 /* GoalRepository.swift */; };
 		65BAA902C2FCCD710B07B111 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA84538E154FCA2E21D81 /* ProgressBarView.swift */; };
 		65BAA91637EB66412C902519 /* RootStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA071F5C535C913978E86 /* RootStateController.swift */; };
 		65BAA93563A74E89B7224742 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA4531E72BB1B2AB2E966 /* UIApplication.swift */; };
@@ -43,6 +44,7 @@
 		19DA48762287FED000EEA4C6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		19F5D4932288030D00207FBB /* wtrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wtrack.entitlements; sourceTree = "<group>"; };
 		65BAA071F5C535C913978E86 /* RootStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootStateController.swift; sourceTree = "<group>"; };
+		65BAA0AAF706383214E49F62 /* GoalRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalRepository.swift; sourceTree = "<group>"; };
 		65BAA1216E9D040429D8C330 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		65BAA19D993CFB6E1E37EB50 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		65BAA2830379475FDD461C2A /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				65BAAA57D8DD0E1C446FCB0E /* WorkoutRepository.swift */,
+				65BAA0AAF706383214E49F62 /* GoalRepository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				65BAA5A5DF7DFC10199A22DD /* YearlyProgressView.swift in Sources */,
 				65BAA58071A3A7860342EA86 /* BarView.swift in Sources */,
 				65BAA902C2FCCD710B07B111 /* ProgressBarView.swift in Sources */,
+				65BAA876C20B0A5736AF38B8 /* GoalRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
