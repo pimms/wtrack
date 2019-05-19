@@ -27,7 +27,7 @@ class YearlyProgressView: PanelView {
     private lazy var subtitleLabel: Label = {
         let label = Label(style: .detail)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "\(Int(viewModel.distanceRan)) / \(Int(viewModel.goalDistance))"
+        label.text = "\(Int(viewModel.distanceRan)) / \(Int(viewModel.goalDistance)) km"
         return label
     }()
 
@@ -67,7 +67,7 @@ class YearlyProgressView: PanelView {
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: .mediumLargeSpacing),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: subtitleLabel.leadingAnchor, constant: -.mediumLargeSpacing),
 
-            subtitleLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: .smallSpacing),
+            subtitleLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
 
             progressBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
