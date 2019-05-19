@@ -4,7 +4,7 @@
 
 import UIKit
 
-class YearlyProgressView: PanelView {
+class WeeklyProgressView: PanelView {
 
     // MARK: - Private properties
 
@@ -15,7 +15,7 @@ class YearlyProgressView: PanelView {
     private lazy var titleLabel: Label = {
         let label = Label(style: .title4)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Yearly progress"
+        label.text = "Weekly progress"
         return label
     }()
 
@@ -27,7 +27,7 @@ class YearlyProgressView: PanelView {
     }()
 
     private lazy var progressBar: ProgressBarView = {
-        let bar = ProgressBarView(doneColor: .candyPink, progress: CGFloat(progress.currentValue / progress.goalValue))
+        let bar = ProgressBarView(doneColor: .candyGreen, progress: CGFloat(progress.currentValue / progress.goalValue))
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
@@ -44,7 +44,7 @@ class YearlyProgressView: PanelView {
 
     init(progress: Progress) {
         self.progress = progress
-        super.init(frame: .zero)
+        super.init()
         setup()
         setupMarker()
     }
@@ -70,9 +70,9 @@ class YearlyProgressView: PanelView {
     }
 
     private func setupMarker() {
-        let day = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 0
-        let fraction = CGFloat(day) / 365.0
-        progressBar.markerFraction = fraction
+        let fraction = progress.currentValue / progress.goalValue
+        if fraction > 1.0001 {
+            progressBar.markerFraction = 1.0 / CGFloat(fraction)
+        }
     }
 }
-

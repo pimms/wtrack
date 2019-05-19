@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19DA48772287FED000EEA4C6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DA48762287FED000EEA4C6 /* HealthKit.framework */; };
+		65BAA0901291933CCC3959CE /* WeeklyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA3E5D70A5ADB504085F6 /* WeeklyProgressView.swift */; };
 		65BAA0FAC2665F9140075592 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA2DB92A0407A1AE214EC /* CGPoint.swift */; };
 		65BAA226D0AC7677BF8A278F /* WorkoutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAA57D8DD0E1C446FCB0E /* WorkoutRepository.swift */; };
 		65BAA3B93E2BA98B73F09E52 /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA437A34C74ACB9DA1586 /* Button+Style.swift */; };
@@ -18,6 +19,7 @@
 		65BAA5A5DF7DFC10199A22DD /* YearlyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA724D3794ADCAF792631 /* YearlyProgressView.swift */; };
 		65BAA5C6BF6A9FE1E3FB0506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BAA19D993CFB6E1E37EB50 /* Main.storyboard */; };
 		65BAA5F522CEC829E7E38638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BAA807C85825909357B7A8 /* LaunchScreen.storyboard */; };
+		65BAA6B5349A8451037E3E6A /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA7FD8D6DF41F93A32412 /* Progress.swift */; };
 		65BAA6B7D20077CF52F7722B /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAE74603A5BA7E969B546 /* PanelView.swift */; };
 		65BAA7E19EAC4CF321BFBE87 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAB2E5DD4B68E25B6B096 /* Identifiable.swift */; };
 		65BAA7E5F68A1C2A7CD34783 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA8B6A1CAC7F22525D8E1 /* Colors.swift */; };
@@ -31,6 +33,7 @@
 		65BAA93563A74E89B7224742 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA4531E72BB1B2AB2E966 /* UIApplication.swift */; };
 		65BAA9C1A181B530F05DFF33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA5E91C65B82977748B10 /* AppDelegate.swift */; };
 		65BAAA283A6DB9F8DE380A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65BAA890BF2784CEEF5ECC93 /* Assets.xcassets */; };
+		65BAAA3FEAAFE8D4F38FBE1E /* Date+lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAE49661ACDB49D491F1E /* Date+lookup.swift */; };
 		65BAAB59E354BCEA11DEDB14 /* Label+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA99F8030272F3A4F15A0 /* Label+Style.swift */; };
 		65BAABF02878FAD65224DD2E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA9483F7A4EAF187DC6A8 /* UIViewController.swift */; };
 		65BAAC65A82A60A04F38AAB0 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA1216E9D040429D8C330 /* Label.swift */; };
@@ -51,11 +54,13 @@
 		65BAA2DB92A0407A1AE214EC /* CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		65BAA2EC669D6B424E30C881 /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		65BAA3DAEF6073F7BBEB5B52 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		65BAA3E5D70A5ADB504085F6 /* WeeklyProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyProgressView.swift; sourceTree = "<group>"; };
 		65BAA437A34C74ACB9DA1586 /* Button+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		65BAA4531E72BB1B2AB2E966 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		65BAA5E91C65B82977748B10 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65BAA63307BD5663DDD89F8C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		65BAA724D3794ADCAF792631 /* YearlyProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyProgressView.swift; sourceTree = "<group>"; };
+		65BAA7FD8D6DF41F93A32412 /* Progress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		65BAA807C85825909357B7A8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65BAA84538E154FCA2E21D81 /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		65BAA890BF2784CEEF5ECC93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 		65BAAB2E5DD4B68E25B6B096 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		65BAAD129B8D0B0D3EAAEF80 /* Spacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		65BAAE09E79F9B6713D7F15B /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		65BAAE49661ACDB49D491F1E /* Date+lookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+lookup.swift"; sourceTree = "<group>"; };
 		65BAAE74603A5BA7E969B546 /* PanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +133,7 @@
 		65BAA00902EE04238832B0BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				65BAA37B5B34F9ACDF51F2B4 /* FinniversKit */,
+				65BAA37B5B34F9ACDF51F2B4 /* Utility */,
 				65BAA1EDF01945A6189E1E95 /* Controllers */,
 				65BAA1A60375C7682499B00F /* Core */,
 				65BAA7EE6DB317C007D644FB /* Models */,
@@ -155,6 +161,7 @@
 			children = (
 				65BAAE09E79F9B6713D7F15B /* Data.swift */,
 				65BAAB1E385B5ED4A3C4852B /* String.swift */,
+				65BAAE49661ACDB49D491F1E /* Date+lookup.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -184,7 +191,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		65BAA37B5B34F9ACDF51F2B4 /* FinniversKit */ = {
+		65BAA37B5B34F9ACDF51F2B4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				65BAA787FB0C59F4D69D3D40 /* DNA */,
@@ -193,7 +200,7 @@
 				65BAA662E39E4C80D633CB0D /* Extensions */,
 				65BAA416813C5B98A3C8D9A4 /* Protocols */,
 			);
-			path = FinniversKit;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		65BAA416813C5B98A3C8D9A4 /* Protocols */ = {
@@ -237,6 +244,7 @@
 			children = (
 				65BAAA57D8DD0E1C446FCB0E /* WorkoutRepository.swift */,
 				65BAA0AAF706383214E49F62 /* GoalRepository.swift */,
+				65BAA7FD8D6DF41F93A32412 /* Progress.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 				65BAA724D3794ADCAF792631 /* YearlyProgressView.swift */,
 				65BAA9AE97B2887B75FEDBCB /* BarView.swift */,
 				65BAA84538E154FCA2E21D81 /* ProgressBarView.swift */,
+				65BAA3E5D70A5ADB504085F6 /* WeeklyProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,6 +381,9 @@
 				65BAA58071A3A7860342EA86 /* BarView.swift in Sources */,
 				65BAA902C2FCCD710B07B111 /* ProgressBarView.swift in Sources */,
 				65BAA876C20B0A5736AF38B8 /* GoalRepository.swift in Sources */,
+				65BAA0901291933CCC3959CE /* WeeklyProgressView.swift in Sources */,
+				65BAA6B5349A8451037E3E6A /* Progress.swift in Sources */,
+				65BAAA3FEAAFE8D4F38FBE1E /* Date+lookup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

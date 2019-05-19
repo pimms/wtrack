@@ -19,6 +19,16 @@ class WorkoutRepository {
         return Float(distance)
     }
 
+    var totalKilometersThisWeek: Float {
+        var distance: Double = 0.0
+
+        let weekStart = Date.today().previous(.monday, considerToday: true)
+        workouts.filter { $0.endDate >= weekStart }
+                .forEach { distance += ($0.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0 }
+
+        return Float(distance)
+    }
+
     var weeklyDistanceThisYear: [(Int, Float)] {
         var dict = Dictionary(grouping: workouts) {
             Calendar.current.component(.weekOfYear, from: $0.endDate)

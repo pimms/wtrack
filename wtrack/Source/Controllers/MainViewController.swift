@@ -84,6 +84,7 @@ extension MainViewController: UITableViewDataSource {
 
     private enum TableContent: Int, CaseIterable {
         case yearlyProgress
+        case weeklyProgress
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,18 +107,27 @@ extension MainViewController: UITableViewDataSource {
 
         switch content {
         case .yearlyProgress:
-            return YearlyProgressView(viewModel: calculateYearlyProgress())
+            return YearlyProgressView(progress: calculateYearlyProgress())
+        case .weeklyProgress:
+            return WeeklyProgressView(progress: calculateWeeklyProgress())
         }
     }
 }
 
-// MARK: - Yearly Progress
+// MARK: - Progress Calculation
 
 extension MainViewController {
-    private func calculateYearlyProgress() -> YearlyProgressViewModel {
-        let goalDistance = goalRepository.kilometersPerWeek * 52
+    private func calculateYearlyProgress() -> Progress {
+        let goalDistance = (Double(goalRepository.kilometersPerWeek) / 7.0) * 364.0
         let curDistance = workoutRepository.totalKilometersThisYear
-        let viewModel = YearlyProgressViewModel(distanceRan: curDistance, goalDistance: Float(goalDistance))
-        return viewModel
+        let progress = SimpleProgress(currentValue: curDistance, goalValue: Float(goalDistance))
+        return progress
+    }
+
+    private func calculateWeeklyProgress() -> Progress {
+        let goalDistance = goalRepository.kilometersPerWeek
+        let curDistance = workoutRepository.totalKilometersThisWeek
+        let progress = SimpleProgress(currentValue: curDistance, goalValue: Float(goalDistance))
+        return progress
     }
 }

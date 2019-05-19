@@ -27,6 +27,7 @@ class PanelView: UIView {
         layer.borderColor = UIColor.steel.cgColor
         layer.borderWidth = 1.0
         layer.cornerRadius = .mediumLargeSpacing
+        translatesAutoresizingMaskIntoConstraints = false
 
         /* Shadows inside a tableview is obviously shit, so solve that
          * before potentially enabling shadows again.
