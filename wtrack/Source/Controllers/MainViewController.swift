@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.allowsSelection = false
         return tableView
     }()
@@ -83,12 +84,16 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
 
     private enum TableContent: Int, CaseIterable {
-        case yearlyProgress
         case weeklyProgress
+        case yearlyProgress
+    }
+
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return TableContent.allCases.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TableContent.allCases.count
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,7 +106,7 @@ extension MainViewController: UITableViewDataSource {
     }
 
     private func contentView(forIndexPath indexPath: IndexPath) -> UIView {
-        guard let content = TableContent.allCases.filter({ $0.rawValue == indexPath.row }).first else {
+        guard let content = TableContent.allCases.filter({ $0.rawValue == indexPath.section }).first else {
             fatalError()
         }
 
@@ -111,6 +116,18 @@ extension MainViewController: UITableViewDataSource {
         case .weeklyProgress:
             return WeeklyProgressView(progress: calculateWeeklyProgress())
         }
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return .mediumLargeSpacing
+    }
+
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }
 }
 
