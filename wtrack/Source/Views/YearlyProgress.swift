@@ -27,7 +27,7 @@ class YearlyProgress: Panel {
     }()
 
     private lazy var progressBar: ProgressBar = {
-        let bar = ProgressBar(doneColor: .candyPink, progress: CGFloat(progress.currentValue / progress.goalValue))
+        let bar = ProgressBar(progressColor: .candyPink, progress: CGFloat(progress.currentValue / progress.goalValue))
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()

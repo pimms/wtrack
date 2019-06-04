@@ -20,20 +20,19 @@ class ProgressBar: UIView {
 
     // MARK: - Private properties
 
-    private let doneColor: UIColor
-    private let remainingColor: UIColor
+    private let progressColor: UIColor
     private let progress: CGFloat
 
     // MARK: - UI properties
 
-    private lazy var fullBar: Bar = {
-        let bar = Bar(color: remainingColor)
+    private lazy var backgroundBar: Bar = {
+        let bar = Bar(color: .gray)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
 
-    private lazy var doneBar: Bar = {
-        let bar = Bar(color: doneColor)
+    private lazy var progressBar: Bar = {
+        let bar = Bar(color: progressColor)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
@@ -56,9 +55,8 @@ class ProgressBar: UIView {
         fatalError()
     }
 
-    init(doneColor: UIColor, remainingColor: UIColor = .steel, progress: CGFloat) {
-        self.doneColor = doneColor
-        self.remainingColor = remainingColor
+    init(progressColor: UIColor, progress: CGFloat) {
+        self.progressColor = progressColor
         self.progress = {
             if progress < 0 {
                 return 0
@@ -73,16 +71,16 @@ class ProgressBar: UIView {
     }
 
     private func setup() {
-        addSubview(fullBar)
-        addSubview(doneBar)
+        addSubview(backgroundBar)
+        addSubview(progressBar)
 
-        fullBar.fillInSuperview()
+        backgroundBar.fillInSuperview()
 
         NSLayoutConstraint.activate([
-            doneBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            doneBar.topAnchor.constraint(equalTo: topAnchor),
-            doneBar.bottomAnchor.constraint(equalTo: bottomAnchor),
-            doneBar.widthAnchor.constraint(equalTo: fullBar.widthAnchor, multiplier: progress)
+            progressBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            progressBar.topAnchor.constraint(equalTo: topAnchor),
+            progressBar.bottomAnchor.constraint(equalTo: bottomAnchor),
+            progressBar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: progress)
         ])
     }
 
@@ -109,9 +107,9 @@ class ProgressBar: UIView {
             layer.addSublayer(markerLayer)
         }
 
-        let origin = fullBar.frame.origin
-        let position = CGPoint(x: origin.x - 1.0 + fraction*fullBar.frame.width,
-                               y: origin.y + 0.5*fullBar.frame.height)
+        let origin = backgroundBar.frame.origin
+        let position = CGPoint(x: origin.x - 1.0 + fraction*backgroundBar.frame.width,
+                               y: origin.y + 0.5*backgroundBar.frame.height)
         markerLayer.position = position
     }
 }

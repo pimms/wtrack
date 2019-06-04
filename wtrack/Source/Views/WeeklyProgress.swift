@@ -38,7 +38,7 @@ class WeeklyProgress: Panel {
     }()
 
     private lazy var progressBar: ProgressBar = {
-        let bar = ProgressBar(doneColor: .candyGreen, progress: CGFloat(viewModel.distance / viewModel.goalDistance))
+        let bar = ProgressBar(progressColor: .candyGreen, progress: CGFloat(viewModel.distance / viewModel.goalDistance))
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
