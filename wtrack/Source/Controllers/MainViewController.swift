@@ -114,7 +114,7 @@ extension MainViewController: UITableViewDataSource {
         case .yearlyProgress:
             return YearlyProgress(progress: calculateYearlyProgress())
         case .weeklyProgress:
-            return WeeklyProgress(progress: calculateWeeklyProgress())
+            return WeeklyProgress(viewModel: getWeeklyState())
         }
     }
 }
@@ -141,10 +141,10 @@ extension MainViewController {
         return progress
     }
 
-    private func calculateWeeklyProgress() -> Progress {
+    private func getWeeklyState() -> WeeklyProgressViewModel {
         let goalDistance = goalRepository.kilometersPerWeek
-        let curDistance = workoutRepository.totalKilometersThisWeek
-        let progress = SimpleProgress(currentValue: curDistance, goalValue: Float(goalDistance))
-        return progress
+        let workouts = workoutRepository.workoutLengthsThisWeek
+
+        return WeeklyProgressViewModel(goalDistance: goalDistance, weeklyDistances: workouts)
     }
 }

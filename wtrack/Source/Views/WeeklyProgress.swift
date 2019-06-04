@@ -5,14 +5,21 @@
 import UIKit
 
 struct WeeklyProgressViewModel {
+    let goalDistance: Float
+    let weeklyDistances: [Float]
+}
 
+private extension WeeklyProgressViewModel {
+    var distance: Float {
+        return weeklyDistances.reduce(0, +)
+    }
 }
 
 class WeeklyProgress: Panel {
 
     // MARK: - Private properties
 
-    private let progress: Progress
+    private let viewModel: WeeklyProgressViewModel
 
     // MARK: - UI properties
 
@@ -26,12 +33,12 @@ class WeeklyProgress: Panel {
     private lazy var subtitleLabel: Label = {
         let label = Label(style: .detail)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "\(Int(progress.currentValue)) / \(Int(progress.goalValue)) km"
+        label.text = "\(Int(viewModel.distance)) / \(Int(viewModel.goalDistance)) km"
         return label
     }()
 
     private lazy var progressBar: ProgressBar = {
-        let bar = ProgressBar(doneColor: .candyGreen, progress: CGFloat(progress.currentValue / progress.goalValue))
+        let bar = ProgressBar(doneColor: .candyGreen, progress: CGFloat(viewModel.distance / viewModel.goalDistance))
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
@@ -42,8 +49,8 @@ class WeeklyProgress: Panel {
         fatalError()
     }
 
-    required init(progress: Progress) {
-        self.progress = progress
+    required init(viewModel: WeeklyProgressViewModel) {
+        self.viewModel = viewModel
         super.init()
         setup()
         setupMarker()
@@ -70,7 +77,7 @@ class WeeklyProgress: Panel {
     }
 
     private func setupMarker() {
-        let fraction = progress.currentValue / progress.goalValue
+        let fraction = viewModel.distance / viewModel.goalDistance
         if fraction > 1.0001 {
             progressBar.markerFraction = 1.0 / CGFloat(fraction)
         }
