@@ -112,9 +112,9 @@ extension MainViewController: UITableViewDataSource {
 
         switch content {
         case .yearlyProgress:
-            return YearlyProgressView(progress: calculateYearlyProgress())
+            return YearlyProgress(progress: calculateYearlyProgress())
         case .weeklyProgress:
-            return WeeklyProgressView(progress: calculateWeeklyProgress())
+            return WeeklyProgress(progress: calculateWeeklyProgress())
         }
     }
 }

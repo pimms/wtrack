@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ProgressBarView: UIView {
+class ProgressBar: UIView {
 
     // MARK: - Internal properties
 
@@ -26,14 +26,14 @@ class ProgressBarView: UIView {
 
     // MARK: - UI properties
 
-    private lazy var fullBar: BarView = {
-        let bar = BarView(color: remainingColor)
+    private lazy var fullBar: Bar = {
+        let bar = Bar(color: remainingColor)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
 
-    private lazy var doneBar: BarView = {
-        let bar = BarView(color: doneColor)
+    private lazy var doneBar: Bar = {
+        let bar = Bar(color: doneColor)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
@@ -41,7 +41,7 @@ class ProgressBarView: UIView {
     private lazy var markerLayer: CALayer = {
         let layer = CALayer()
         layer.backgroundColor = UIColor.darkGray.cgColor
-        layer.bounds = CGRect(x: 0, y: 0, width: 1.0, height: BarView.barHeight + 4.0)
+        layer.bounds = CGRect(x: 0, y: 0, width: 1.0, height: Bar.barHeight + 4.0)
         layer.cornerRadius = 1.0
         return layer
     }()

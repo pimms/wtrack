@@ -5,7 +5,7 @@
 
 import UIKit
 
-class BarView: UIView {
+class Bar: UIView {
 
     // MARK: - Static properties
 
@@ -16,10 +16,10 @@ class BarView: UIView {
     init(color: UIColor) {
         super.init(frame: .zero)
         backgroundColor = color
-        layer.cornerRadius = BarView.barHeight / 2.0
+        layer.cornerRadius = Bar.barHeight / 2.0
 
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: BarView.barHeight)
+            heightAnchor.constraint(equalToConstant: Bar.barHeight)
         ])
     }
 

@@ -4,7 +4,7 @@
 
 import UIKit
 
-class PanelView: UIView {
+class Panel: UIView {
 
     // MARK: - Init
 
@@ -20,7 +20,6 @@ class PanelView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError()
-        setup()
     }
 
     private func setup() {
