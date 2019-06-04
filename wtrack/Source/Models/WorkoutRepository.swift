@@ -24,7 +24,7 @@ class WorkoutRepository {
 
         let weekStart = Date.today().previous(.monday, considerToday: true)
         workouts.filter { $0.endDate >= weekStart }
-                .map{ Float(($0.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0) }
+                .map{ ($0.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0 }
                 .forEach { distance += $0 }
 
         return Float(distance)
