@@ -34,15 +34,11 @@ class WeeklyProgressView: PanelView {
 
     // MARK: - Init
 
-    override init(frame: CGRect) {
-        fatalError()
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
 
-    init(progress: Progress) {
+    required init(progress: Progress) {
         self.progress = progress
         super.init()
         setup()
