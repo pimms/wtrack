@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ProgressBar: UIView {
+class ProgressBarBase: UIView {
 
     // MARK: - Internal properties
 
@@ -18,21 +18,10 @@ class ProgressBar: UIView {
         }
     }
 
-    // MARK: - Private properties
-
-    private let progressColor: UIColor
-    private let progress: CGFloat
-
     // MARK: - UI properties
 
-    private lazy var backgroundBar: Bar = {
+    fileprivate lazy var backgroundBar: Bar = {
         let bar = Bar(color: .gray)
-        bar.translatesAutoresizingMaskIntoConstraints = false
-        return bar
-    }()
-
-    private lazy var progressBar: Bar = {
-        let bar = Bar(color: progressColor)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
@@ -48,40 +37,23 @@ class ProgressBar: UIView {
     // MARK: - Init
 
     override init(frame: CGRect) {
-        fatalError()
+        super.init(frame: frame)
+        setup()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError()
+        super.init(coder: aDecoder)
+        setup()
     }
 
-    init(progressColor: UIColor, progress: CGFloat) {
-        self.progressColor = progressColor
-        self.progress = {
-            if progress < 0 {
-                return 0
-            } else if progress > 1 {
-                return 1
-            } else {
-                return progress
-            }
-        }()
+    init() {
         super.init(frame: .zero)
         setup()
     }
 
     private func setup() {
         addSubview(backgroundBar)
-        addSubview(progressBar)
-
         backgroundBar.fillInSuperview()
-
-        NSLayoutConstraint.activate([
-            progressBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            progressBar.topAnchor.constraint(equalTo: topAnchor),
-            progressBar.bottomAnchor.constraint(equalTo: bottomAnchor),
-            progressBar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: progress)
-        ])
     }
 
     // MARK: - Lifecycle
@@ -109,7 +81,59 @@ class ProgressBar: UIView {
 
         let origin = backgroundBar.frame.origin
         let position = CGPoint(x: origin.x - 1.0 + fraction*backgroundBar.frame.width,
-                               y: origin.y + 0.5*backgroundBar.frame.height)
+            y: origin.y + 0.5*backgroundBar.frame.height)
         markerLayer.position = position
+    }
+}
+
+class ProgressBar: ProgressBarBase {
+
+    // MARK: - Private properties
+
+    private let progressColor: UIColor
+    private let progress: CGFloat
+
+    // MARK: - UI properties
+
+    private lazy var progressBar: Bar = {
+        let bar = Bar(color: progressColor)
+        bar.translatesAutoresizingMaskIntoConstraints = false
+        return bar
+    }()
+
+    // MARK: - Init
+
+    override init(frame: CGRect) {
+        fatalError()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+
+    init(progressColor: UIColor, progress: CGFloat) {
+        self.progressColor = progressColor
+        self.progress = {
+            if progress < 0 {
+                return 0
+            } else if progress > 1 {
+                return 1
+            } else {
+                return progress
+            }
+        }()
+        super.init()
+        setup()
+    }
+
+    private func setup() {
+        addSubview(progressBar)
+
+        NSLayoutConstraint.activate([
+            progressBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            progressBar.topAnchor.constraint(equalTo: topAnchor),
+            progressBar.bottomAnchor.constraint(equalTo: bottomAnchor),
+            progressBar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: progress)
+        ])
     }
 }
