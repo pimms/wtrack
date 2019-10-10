@@ -80,7 +80,8 @@ class ProgressBarBase: UIView {
         }
 
         let origin = backgroundBar.frame.origin
-        let position = CGPoint(x: origin.x - 1.0 + fraction*backgroundBar.frame.width,
+        let position = CGPoint(
+            x: origin.x - 1.0 + fraction*backgroundBar.frame.width,
             y: origin.y + 0.5*backgroundBar.frame.height)
         markerLayer.position = position
     }
