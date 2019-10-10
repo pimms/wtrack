@@ -111,11 +111,14 @@ extension MainViewController: UITableViewDataSource {
             fatalError()
         }
 
+        let progressCalculator = ProgressCalculator(goalRepository: goalRepository,
+                                                    workoutRepository: workoutRepository)
+
         switch content {
         case .yearlyProgress:
-            return YearlyProgress(progress: calculateYearlyProgress())
+            return YearlyProgress(progress: progressCalculator.yearlyProgress())
         case .weeklyProgress:
-            return WeeklyProgress(viewModel: getWeeklyState())
+            return WeeklyProgress(viewModel: progressCalculator.weeklyProgress())
         }
     }
 }
@@ -129,22 +132,5 @@ extension MainViewController: UITableViewDelegate {
         let view = UIView()
         view.backgroundColor = .clear
         return view
-    }
-}
-
-// MARK: - Progress Calculation
-
-extension MainViewController {
-    private func calculateYearlyProgress() -> wtrackKit.Progress {
-        let goalDistance = (Double(goalRepository.kilometersPerWeek) / 7.0) * 365.0
-        let curDistance = workoutRepository.totalKilometersThisYear
-        return SimpleProgress(currentValue: curDistance, goalValue: goalDistance)
-    }
-
-    private func getWeeklyState() -> WeeklyProgressViewModel {
-        let goalDistance = goalRepository.kilometersPerWeek
-        let workouts = workoutRepository.workoutLengthsThisWeek
-
-        return WeeklyProgressViewModel(goalDistance: goalDistance, weeklyDistances: workouts)
     }
 }

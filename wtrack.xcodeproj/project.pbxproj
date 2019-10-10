@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,9 @@
 		1953D2B3234F29E50065DEB9 /* Date+lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAE49661ACDB49D491F1E /* Date+lookup.swift */; };
 		1953D2B4234F29E50065DEB9 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAB2E5DD4B68E25B6B096 /* Identifiable.swift */; };
 		1953D2B5234F29E50065DEB9 /* SeedableRNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1953D272234F1DC90065DEB9 /* SeedableRNG.swift */; };
+		19BE1BFE234F30BB006E4CE7 /* HKHealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE1BFD234F30BB006E4CE7 /* HKHealthStore.swift */; };
+		19BE1C00234F3223006E4CE7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DA48762287FED000EEA4C6 /* HealthKit.framework */; platformFilter = ios; };
+		19BE1C04234F3540006E4CE7 /* ProgressCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE1C03234F3540006E4CE7 /* ProgressCalculator.swift */; };
 		19DA48772287FED000EEA4C6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DA48762287FED000EEA4C6 /* HealthKit.framework */; };
 		65BAA5C6BF6A9FE1E3FB0506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BAA19D993CFB6E1E37EB50 /* Main.storyboard */; };
 		65BAA5F522CEC829E7E38638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BAA807C85825909357B7A8 /* LaunchScreen.storyboard */; };
@@ -101,6 +104,8 @@
 		1953D28E234F29750065DEB9 /* wtrackKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = wtrackKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1953D290234F29750065DEB9 /* wtrackKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wtrackKit.h; sourceTree = "<group>"; };
 		1953D291234F29750065DEB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19BE1BFD234F30BB006E4CE7 /* HKHealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHealthStore.swift; sourceTree = "<group>"; };
+		19BE1C03234F3540006E4CE7 /* ProgressCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCalculator.swift; sourceTree = "<group>"; };
 		19DA485F2287FEC200EEA4C6 /* wtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wtrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DA48762287FED000EEA4C6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		19F5D4932288030D00207FBB /* wtrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wtrack.entitlements; sourceTree = "<group>"; };
@@ -151,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19BE1C00234F3223006E4CE7 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +192,14 @@
 				1953D291234F29750065DEB9 /* Info.plist */,
 			);
 			path = wtrackKit;
+			sourceTree = "<group>";
+		};
+		19BE1BFC234F30AD006E4CE7 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				19BE1BFD234F30BB006E4CE7 /* HKHealthStore.swift */,
+			);
+			path = HealthKit;
 			sourceTree = "<group>";
 		};
 		19DA48562287FEC200EEA4C6 = {
@@ -320,6 +334,7 @@
 		65BAA662E39E4C80D633CB0D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				19BE1BFC234F30AD006E4CE7 /* HealthKit */,
 				65BAA00982564FF8EEA5B020 /* UIKit */,
 				65BAA08CFF3429D1F362881C /* Foundation */,
 			);
@@ -342,6 +357,7 @@
 				65BAAA57D8DD0E1C446FCB0E /* WorkoutRepository.swift */,
 				65BAA0AAF706383214E49F62 /* GoalRepository.swift */,
 				65BAA7FD8D6DF41F93A32412 /* Progress.swift */,
+				19BE1C03234F3540006E4CE7 /* ProgressCalculator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -533,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19BE1C04234F3540006E4CE7 /* ProgressCalculator.swift in Sources */,
 				1953D29D234F29E50065DEB9 /* Progress.swift in Sources */,
 				1953D2B3234F29E50065DEB9 /* Date+lookup.swift in Sources */,
 				1953D2A7234F29E50065DEB9 /* Button+Style.swift in Sources */,
@@ -545,6 +562,7 @@
 				1953D2A0234F29E50065DEB9 /* Bar.swift in Sources */,
 				1953D29F234F29E50065DEB9 /* YearlyProgress.swift in Sources */,
 				1953D29C234F29E50065DEB9 /* GoalRepository.swift in Sources */,
+				19BE1BFE234F30BB006E4CE7 /* HKHealthStore.swift in Sources */,
 				1953D2AE234F29E50065DEB9 /* UICollectionView.swift in Sources */,
 				1953D29E234F29E50065DEB9 /* Panel.swift in Sources */,
 				1953D2B1234F29E50065DEB9 /* Data.swift in Sources */,
@@ -660,6 +678,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = no.jstien.wtrackKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -688,6 +707,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = no.jstien.wtrackKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

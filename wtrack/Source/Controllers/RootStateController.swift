@@ -38,9 +38,7 @@ class RootStateController: UIViewController {
     // MARK: - Private methods
 
     private func requestHealthKitAccess() {
-        let toRead = Set(arrayLiteral: HKWorkoutType.workoutType())
-
-        healthStore.requestAuthorization(toShare: nil, read: toRead, completion: { [weak self] success, err in
+        healthStore.requestAuthorization { [weak self] success, err in
             if success, let healthStore = self?.healthStore {
                 let workoutRepo = WorkoutRepository(healthStore: healthStore)
                 self?.workoutRepository = workoutRepo
@@ -57,7 +55,7 @@ class RootStateController: UIViewController {
             } else {
                 print("HealthKit authorization failed: \(String(describing: err))")
             }
-        })
+        }
     }
 
     @objc private func applicationDidBecomeActive() {
