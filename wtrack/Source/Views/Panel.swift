@@ -23,7 +23,8 @@ class Panel: UIView {
     }
 
     private func setup() {
-        layer.borderColor = UIColor.steel.cgColor
+        backgroundColor = .systemBackground
+        layer.borderColor = UIColor.systemGray3.cgColor
         layer.borderWidth = 1.0
         layer.cornerRadius = .mediumLargeSpacing
         translatesAutoresizingMaskIntoConstraints = false

@@ -21,14 +21,14 @@ class ProgressBarBase: UIView {
     // MARK: - UI properties
 
     fileprivate lazy var backgroundBar: Bar = {
-        let bar = Bar(color: .gray)
+        let bar = Bar(color: UIColor.systemGray5)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
 
     private lazy var markerLayer: CALayer = {
         let layer = CALayer()
-        layer.backgroundColor = UIColor.darkGray.cgColor
+        layer.backgroundColor = UIColor.systemGray.cgColor
         layer.bounds = CGRect(x: 0, y: 0, width: 1.0, height: Bar.barHeight + 4.0)
         layer.cornerRadius = 1.0
         return layer

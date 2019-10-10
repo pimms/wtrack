@@ -56,7 +56,7 @@ class MainViewController: UIViewController {
     }
 
     private func setup() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         view.addSubview(titleLabel)
         view.addSubview(tableView)

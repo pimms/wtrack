@@ -29,7 +29,7 @@ public class Label: UILabel {
 
         accessibilityLabel = text
         font = style?.font
-        textColor = .defaultText
+        textColor = .label
     }
 
     // MARK: - Dependency injection
