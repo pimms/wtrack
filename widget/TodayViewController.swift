@@ -47,9 +47,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        let height: CGFloat = (activeDisplayMode == .compact ? 71.5 : 71.5*2+16) + 32
-        // preferredContentSize = CGSize(width: maxSize.width, height: height)
-
         updateViews()
     }
 
@@ -57,11 +54,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         guard let workoutRepository = workoutRepository else { return }
 
         let progressCalculator = ProgressCalculator(goalRepository: goalRepository, workoutRepository: workoutRepository)
-
-
-        var progressViews: [UIView] = [
-            WeeklyProgress(viewModel: progressCalculator.weeklyProgress())
-        ]
+        var progressViews: [UIView] = [ WeeklyProgress(viewModel: progressCalculator.weeklyProgress()) ]
 
         if extensionContext?.widgetActiveDisplayMode == .some(.expanded) {
             progressViews.append(YearlyProgress(progress: progressCalculator.yearlyProgress()))
