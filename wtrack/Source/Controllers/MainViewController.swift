@@ -136,7 +136,7 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController {
     private func calculateYearlyProgress() -> wtrackKit.Progress {
-        let goalDistance = (Double(goalRepository.kilometersPerWeek) / 7.0) * 364.0
+        let goalDistance = (Double(goalRepository.kilometersPerWeek) / 7.0) * 365.0
         let curDistance = workoutRepository.totalKilometersThisYear
         return SimpleProgress(currentValue: curDistance, goalValue: goalDistance)
     }
