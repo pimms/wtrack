@@ -17,7 +17,28 @@
                         <subviews>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gx-8k-LHf">
                                 <rect key="frame" x="0.0" y="44" width="320" height="206"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="n2I-YD-K0c">
+                                        <rect key="frame" x="16" y="16" width="288" height="174"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8h-ku-L5K" customClass="TodayPanel" customModule="widget" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="79.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJi-FB-Fi5" customClass="TodayPanel" customModule="widget" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="95.5" width="288" height="78.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="n2I-YD-K0c" secondAttribute="bottom" constant="16" id="Gl6-nC-JhZ"/>
+                                    <constraint firstItem="n2I-YD-K0c" firstAttribute="top" secondItem="6gx-8k-LHf" secondAttribute="top" constant="16" id="HrM-VA-CYd"/>
+                                    <constraint firstItem="n2I-YD-K0c" firstAttribute="leading" secondItem="6gx-8k-LHf" secondAttribute="leading" constant="16" id="iYB-9e-p1i"/>
+                                    <constraint firstAttribute="trailing" secondItem="n2I-YD-K0c" secondAttribute="trailing" constant="16" id="maR-j3-in3"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <constraints>
@@ -32,7 +53,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="250"/>
                     <connections>
-                        <outlet property="contentView" destination="6gx-8k-LHf" id="mgR-Pv-zdg"/>
+                        <outlet property="weeklyProgressPanel" destination="S8h-ku-L5K" id="Egr-Fl-0qm"/>
+                        <outlet property="yearlyProgressPanel" destination="XJi-FB-Fi5" id="rgR-Ut-piH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

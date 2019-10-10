@@ -7,7 +7,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     // MARK: - Private properties
 
-    @IBOutlet private var contentView: UIView?
+    @IBOutlet private var weeklyProgressPanel: TodayPanel?
+    @IBOutlet private var yearlyProgressPanel: TodayPanel?
+
     private let goalRepository: GoalRepository = GoalRepository()
     private var workoutRepository: WorkoutRepository?
 
@@ -15,7 +17,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView?.translatesAutoresizingMaskIntoConstraints = false
+
+        weeklyProgressPanel?.setTitleText("Weekly Progress")
+        yearlyProgressPanel?.setTitleText("Yearly Progress")
 
         let healthStore = HKHealthStore()
         healthStore.requestAuthorization { [weak self] success, error in
@@ -50,42 +54,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         updateViews()
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+    }
+
     private func updateViews() {
         guard let workoutRepository = workoutRepository else { return }
 
+        let expanded = extensionContext?.widgetActiveDisplayMode == .expanded
+        yearlyProgressPanel?.isHidden = !expanded
+
         let progressCalculator = ProgressCalculator(goalRepository: goalRepository, workoutRepository: workoutRepository)
-        var progressViews: [UIView] = [ WeeklyProgress(viewModel: progressCalculator.weeklyProgress()) ]
+        let weeklyModel = progressCalculator.weeklyProgress()
+        let yearlyModel = progressCalculator.yearlyProgress()
 
-        if extensionContext?.widgetActiveDisplayMode == .some(.expanded) {
-            progressViews.append(YearlyProgress(progress: progressCalculator.yearlyProgress()))
-        }
-
-        addViews(progressViews)
+        weeklyProgressPanel?.setProgress(progressValues: weeklyModel.weeklyDistances, goal: weeklyModel.goalDistance)
+        yearlyProgressPanel?.setProgress(progressValues: [yearlyModel.currentValue], goal: yearlyModel.goalValue)
     }
-
-    private func addViews(_ views: [UIView]) {
-        guard let contentView = contentView else { return }
-        contentView.subviews.forEach {
-            $0.removeFromSuperview()
-        }
-
-        views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-
-        let stackView = UIStackView(arrangedSubviews: views)
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        stackView.spacing = .mediumSpacing
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(stackView)
-
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumSpacing),
-            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: .mediumSpacing),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumSpacing),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -.mediumSpacing),
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-        ])
-    }
-    
 }

@@ -10,7 +10,7 @@
 		1953D27A234F28D00065DEB9 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1953D279234F28D00065DEB9 /* NotificationCenter.framework */; };
 		1953D27D234F28D00065DEB9 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1953D27C234F28D00065DEB9 /* TodayViewController.swift */; };
 		1953D280234F28D00065DEB9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1953D27E234F28D00065DEB9 /* MainInterface.storyboard */; };
-		1953D284234F28D00065DEB9 /* widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1953D278234F28D00065DEB9 /* widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1953D284234F28D00065DEB9 /* Run Progress.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1953D278234F28D00065DEB9 /* Run Progress.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1953D292234F29750065DEB9 /* wtrackKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1953D290234F29750065DEB9 /* wtrackKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1953D295234F29750065DEB9 /* wtrackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1953D28E234F29750065DEB9 /* wtrackKit.framework */; };
 		1953D296234F29750065DEB9 /* wtrackKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1953D28E234F29750065DEB9 /* wtrackKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,6 +40,8 @@
 		1953D2B3234F29E50065DEB9 /* Date+lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAE49661ACDB49D491F1E /* Date+lookup.swift */; };
 		1953D2B4234F29E50065DEB9 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAAB2E5DD4B68E25B6B096 /* Identifiable.swift */; };
 		1953D2B5234F29E50065DEB9 /* SeedableRNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1953D272234F1DC90065DEB9 /* SeedableRNG.swift */; };
+		19B90E42234F5074004B4B40 /* TodayPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19B90E41234F5074004B4B40 /* TodayPanel.xib */; };
+		19B90E44234F5232004B4B40 /* TodayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B90E43234F5232004B4B40 /* TodayPanel.swift */; };
 		19BE1BFE234F30BB006E4CE7 /* HKHealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE1BFD234F30BB006E4CE7 /* HKHealthStore.swift */; };
 		19BE1C00234F3223006E4CE7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DA48762287FED000EEA4C6 /* HealthKit.framework */; platformFilter = ios; };
 		19BE1C04234F3540006E4CE7 /* ProgressCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE1C03234F3540006E4CE7 /* ProgressCalculator.swift */; };
@@ -67,6 +69,13 @@
 			remoteGlobalIDString = 1953D28D234F29750065DEB9;
 			remoteInfo = wtrackKit;
 		};
+		19B90E45234F56D2004B4B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19DA48572287FEC200EEA4C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1953D28D234F29750065DEB9;
+			remoteInfo = wtrackKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,7 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1953D284234F28D00065DEB9 /* widget.appex in Embed App Extensions */,
+				1953D284234F28D00065DEB9 /* Run Progress.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +105,7 @@
 
 /* Begin PBXFileReference section */
 		1953D272234F1DC90065DEB9 /* SeedableRNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedableRNG.swift; sourceTree = "<group>"; };
-		1953D278234F28D00065DEB9 /* widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1953D278234F28D00065DEB9 /* Run Progress.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Run Progress.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1953D279234F28D00065DEB9 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		1953D27C234F28D00065DEB9 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		1953D27F234F28D00065DEB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -104,6 +113,8 @@
 		1953D28E234F29750065DEB9 /* wtrackKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = wtrackKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1953D290234F29750065DEB9 /* wtrackKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wtrackKit.h; sourceTree = "<group>"; };
 		1953D291234F29750065DEB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19B90E41234F5074004B4B40 /* TodayPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayPanel.xib; sourceTree = "<group>"; };
+		19B90E43234F5232004B4B40 /* TodayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPanel.swift; sourceTree = "<group>"; };
 		19BE1BFD234F30BB006E4CE7 /* HKHealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKHealthStore.swift; sourceTree = "<group>"; };
 		19BE1C03234F3540006E4CE7 /* ProgressCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCalculator.swift; sourceTree = "<group>"; };
 		19DA485F2287FEC200EEA4C6 /* wtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wtrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +189,8 @@
 				1953D27C234F28D00065DEB9 /* TodayViewController.swift */,
 				1953D27E234F28D00065DEB9 /* MainInterface.storyboard */,
 				1953D281234F28D00065DEB9 /* Info.plist */,
+				19B90E41234F5074004B4B40 /* TodayPanel.xib */,
+				19B90E43234F5232004B4B40 /* TodayPanel.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -217,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				19DA485F2287FEC200EEA4C6 /* wtrack.app */,
-				1953D278234F28D00065DEB9 /* widget.appex */,
+				1953D278234F28D00065DEB9 /* Run Progress.appex */,
 				1953D28E234F29750065DEB9 /* wtrackKit.framework */,
 			);
 			name = Products;
@@ -417,10 +430,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				19B90E46234F56D2004B4B40 /* PBXTargetDependency */,
 			);
 			name = widget;
 			productName = widget;
-			productReference = 1953D278234F28D00065DEB9 /* widget.appex */;
+			productReference = 1953D278234F28D00065DEB9 /* Run Progress.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		1953D28D234F29750065DEB9 /* wtrackKit */ = {
@@ -513,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B90E42234F5074004B4B40 /* TodayPanel.xib in Resources */,
 				1953D280234F28D00065DEB9 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B90E44234F5232004B4B40 /* TodayPanel.swift in Sources */,
 				1953D27D234F28D00065DEB9 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +619,11 @@
 			target = 1953D28D234F29750065DEB9 /* wtrackKit */;
 			targetProxy = 1953D293234F29750065DEB9 /* PBXContainerItemProxy */;
 		};
+		19B90E46234F56D2004B4B40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1953D28D234F29750065DEB9 /* wtrackKit */;
+			targetProxy = 19B90E45234F56D2004B4B40 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -630,7 +651,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = no.jstien.wtrack.widget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Run Progress";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -650,7 +671,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = no.jstien.wtrack.widget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Run Progress";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
