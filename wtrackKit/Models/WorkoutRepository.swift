@@ -5,11 +5,11 @@
 import Foundation
 import HealthKit
 
-class WorkoutRepository {
+public class WorkoutRepository {
 
-    // MARK: - Internal properties
+    // MARK: - Public properties
 
-    var totalKilometersThisYear: Double {
+    public var totalKilometersThisYear: Double {
         var distance: Double = 0.0
 
         workouts.forEach { workout in
@@ -19,7 +19,7 @@ class WorkoutRepository {
         return distance
     }
 
-    var totalKilometersThisWeek: Double {
+    public var totalKilometersThisWeek: Double {
         var distance: Double = 0.0
 
         let weekStart = Date.today().previous(.monday, considerToday: true)
@@ -30,7 +30,7 @@ class WorkoutRepository {
         return distance
     }
 
-    var workoutLengthsThisWeek: [Double] {
+    public var workoutLengthsThisWeek: [Double] {
         var list = [Double]()
 
         let weekStart = Date.today().previous(.monday, considerToday: true)
@@ -42,7 +42,7 @@ class WorkoutRepository {
         return list
     }
 
-    var weeklyDistanceThisYear: [(Int, Double)] {
+    public var weeklyDistanceThisYear: [(Int, Double)] {
         var dict = Dictionary(grouping: workouts) {
             Calendar.current.component(.weekOfYear, from: $0.endDate)
         }.mapValues { (weekGroup: [HKWorkout]) -> Double in
@@ -72,19 +72,18 @@ class WorkoutRepository {
 
     // MARK: - Init
 
-    init(healthStore: HKHealthStore) {
+    public init(healthStore: HKHealthStore) {
         self.healthStore = healthStore
     }
 
     // MARK: - Public methods
 
-    func loadWorkouts(completion: @escaping () -> Void) {
+    public func loadWorkouts(completion: @escaping () -> Void) {
         fetchWorkouts { [weak self] workouts in
             self?.workouts = workouts
             completion()
         }
     }
-
 
     // MARK: - Private methods
 

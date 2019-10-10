@@ -8,18 +8,18 @@ public class Label: UILabel {
 
     // MARK: - Setup
 
-    init(style: Style) {
+    public init(style: Style) {
         super.init(frame: .zero)
         self.style = style
         setup()
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }

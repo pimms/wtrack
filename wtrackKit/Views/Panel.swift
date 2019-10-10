@@ -4,7 +4,7 @@
 
 import UIKit
 
-class Panel: UIView {
+public class Panel: UIView {
 
     // MARK: - Init
 

@@ -4,11 +4,11 @@
 
 import UIKit
 
-class ProgressBarBase: UIView {
+public class ProgressBarBase: UIView {
 
-    // MARK: - Internal properties
+    // MARK: - Public properties
 
-    var markerFraction: CGFloat? {
+    public var markerFraction: CGFloat? {
         didSet {
             if markerFraction == nil {
                 markerLayer.isHidden = true
@@ -58,7 +58,7 @@ class ProgressBarBase: UIView {
 
     // MARK: - Lifecycle
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
         if markerFraction != nil {
@@ -89,7 +89,7 @@ class ProgressBarBase: UIView {
 
 // MARK: - ProgressBar
 
-class ProgressBar: ProgressBarBase {
+public class ProgressBar: ProgressBarBase {
 
     // MARK: - Private properties
 
@@ -114,7 +114,7 @@ class ProgressBar: ProgressBarBase {
         fatalError()
     }
 
-    init(progressColor: UIColor, progress: Double) {
+    public init(progressColor: UIColor, progress: Double) {
         self.progressColor = progressColor
         self.progress = {
             if progress < 0 {
@@ -143,17 +143,21 @@ class ProgressBar: ProgressBarBase {
 
 // MARK: - MultiSegmentProgressBar
 
-class MultiSegmentProgressBar: ProgressBarBase {
-    var rawSegmentValues: [Double] { didSet { resetBars() } }
-    var goalValue: Double? { didSet { updateGoalMarker() } }
+public class MultiSegmentProgressBar: ProgressBarBase {
 
+    // MARK: - Private properties
+
+    private var rawSegmentValues: [Double] { didSet { resetBars() } }
+    private var goalValue: Double? { didSet { updateGoalMarker() } }
     private var bars: [Bar] = []
+
+    // MARK: - Init
 
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
 
-    required init(rawSegmentValues: [Double], goalValue: Double?) {
+    public required init(rawSegmentValues: [Double], goalValue: Double?) {
         self.rawSegmentValues = rawSegmentValues
         self.goalValue = goalValue
         super.init(frame: .zero)
@@ -161,6 +165,8 @@ class MultiSegmentProgressBar: ProgressBarBase {
         updateGoalMarker()
         setupBars()
     }
+
+    // MARK: - Private methods
 
     private func resetBars() {
         removeBars()

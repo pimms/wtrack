@@ -4,6 +4,7 @@
 
 import UIKit
 import HealthKit
+import wtrackKit
 
 class RootStateController: UIViewController {
 
@@ -54,7 +55,7 @@ class RootStateController: UIViewController {
                     }
                 }
             } else {
-                print("HealthKit authorization failed: \(err)")
+                print("HealthKit authorization failed: \(String(describing: err))")
             }
         })
     }

@@ -4,8 +4,10 @@
 
 import Foundation
 
-class GoalRepository {
-    var kilometersPerWeek: Double {
+public class GoalRepository {
+    public var kilometersPerWeek: Double {
         return 30.0
     }
+
+    public init() { }
 }

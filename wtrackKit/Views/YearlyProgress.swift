@@ -4,7 +4,7 @@
 
 import UIKit
 
-class YearlyProgress: Panel {
+public class YearlyProgress: Panel {
 
     // MARK: - Private properties
 
@@ -42,7 +42,7 @@ class YearlyProgress: Panel {
         fatalError()
     }
 
-    init(progress: Progress) {
+    public init(progress: Progress) {
         self.progress = progress
         super.init(frame: .zero)
         setup()

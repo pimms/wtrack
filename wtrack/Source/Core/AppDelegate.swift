@@ -37,3 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension UIApplication {
+    var appDelegate: AppDelegate? {
+        return delegate as? AppDelegate
+    }
+}

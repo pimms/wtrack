@@ -4,18 +4,20 @@
 
 import UIKit
 
-struct WeeklyProgressViewModel {
-    let goalDistance: Double
-    let weeklyDistances: [Double]
-}
-
-private extension WeeklyProgressViewModel {
-    var distance: Double {
+public struct WeeklyProgressViewModel {
+    public let goalDistance: Double
+    public let weeklyDistances: [Double]
+    public var distance: Double {
         return weeklyDistances.reduce(0, +)
+    }
+
+    public init(goalDistance: Double, weeklyDistances: [Double]) {
+        self.goalDistance = goalDistance
+        self.weeklyDistances = weeklyDistances
     }
 }
 
-class WeeklyProgress: Panel {
+public class WeeklyProgress: Panel {
 
     // MARK: - Private properties
 
@@ -49,7 +51,7 @@ class WeeklyProgress: Panel {
         fatalError()
     }
 
-    required init(viewModel: WeeklyProgressViewModel) {
+    public required init(viewModel: WeeklyProgressViewModel) {
         self.viewModel = viewModel
         super.init()
         setup()

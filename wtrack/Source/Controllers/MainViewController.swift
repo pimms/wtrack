@@ -4,6 +4,7 @@
 
 import UIKit
 import HealthKit
+import wtrackKit
 
 class MainViewController: UIViewController {
 
@@ -134,11 +135,10 @@ extension MainViewController: UITableViewDelegate {
 // MARK: - Progress Calculation
 
 extension MainViewController {
-    private func calculateYearlyProgress() -> Progress {
+    private func calculateYearlyProgress() -> wtrackKit.Progress {
         let goalDistance = (Double(goalRepository.kilometersPerWeek) / 7.0) * 364.0
         let curDistance = workoutRepository.totalKilometersThisYear
-        let progress = SimpleProgress(currentValue: curDistance, goalValue: goalDistance)
-        return progress
+        return SimpleProgress(currentValue: curDistance, goalValue: goalDistance)
     }
 
     private func getWeeklyState() -> WeeklyProgressViewModel {
