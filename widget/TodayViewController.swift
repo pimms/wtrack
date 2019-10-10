@@ -72,26 +72,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     private func addViews(_ views: [UIView]) {
         guard let contentView = contentView else { return }
-        contentView.subviews.forEach { $0.removeFromSuperview() }
-        views.forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview($0)
+        contentView.subviews.forEach {
+            $0.removeFromSuperview()
         }
 
-        var topAnchor: NSLayoutYAxisAnchor = contentView.topAnchor
+        views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
-        for v in views {
-            NSLayoutConstraint.activate([
-                v.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumSpacing),
-                v.topAnchor.constraint(equalTo: topAnchor, constant: .mediumSpacing),
-                v.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumSpacing),
-            ])
-
-            topAnchor = v.bottomAnchor
-        }
+        let stackView = UIStackView(arrangedSubviews: views)
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fillProportionally
+        stackView.spacing = .mediumSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(stackView)
 
         NSLayoutConstraint.activate([
-            views[views.count - 1].bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -.mediumSpacing)
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumSpacing),
+            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: .mediumSpacing),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumSpacing),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -.mediumSpacing),
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
     }
     
