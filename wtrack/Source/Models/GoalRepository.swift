@@ -5,7 +5,7 @@
 import Foundation
 
 class GoalRepository {
-    var kilometersPerWeek: Float {
+    var kilometersPerWeek: Double {
         return 30.0
     }
 }

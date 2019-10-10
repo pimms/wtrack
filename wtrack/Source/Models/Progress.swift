@@ -5,11 +5,11 @@
 import Foundation
 
 protocol Progress {
-    var currentValue: Float { get }
-    var goalValue: Float { get }
+    var currentValue: Double { get }
+    var goalValue: Double { get }
 }
 
 struct SimpleProgress: Progress {
-    let currentValue: Float
-    let goalValue: Float
+    let currentValue: Double
+    let goalValue: Double
 }

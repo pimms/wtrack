@@ -137,7 +137,7 @@ extension MainViewController {
     private func calculateYearlyProgress() -> Progress {
         let goalDistance = (Double(goalRepository.kilometersPerWeek) / 7.0) * 364.0
         let curDistance = workoutRepository.totalKilometersThisYear
-        let progress = SimpleProgress(currentValue: curDistance, goalValue: Float(goalDistance))
+        let progress = SimpleProgress(currentValue: curDistance, goalValue: goalDistance)
         return progress
     }
 

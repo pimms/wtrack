@@ -9,17 +9,17 @@ class WorkoutRepository {
 
     // MARK: - Internal properties
 
-    var totalKilometersThisYear: Float {
+    var totalKilometersThisYear: Double {
         var distance: Double = 0.0
 
         workouts.forEach { workout in
             distance += (workout.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0
         }
 
-        return Float(distance)
+        return distance
     }
 
-    var totalKilometersThisWeek: Float {
+    var totalKilometersThisWeek: Double {
         var distance: Double = 0.0
 
         let weekStart = Date.today().previous(.monday, considerToday: true)
@@ -27,28 +27,27 @@ class WorkoutRepository {
                 .map{ ($0.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0 }
                 .forEach { distance += $0 }
 
-        return Float(distance)
+        return distance
     }
 
-    var workoutLengthsThisWeek: [Float] {
-        var list = [Float]()
+    var workoutLengthsThisWeek: [Double] {
+        var list = [Double]()
 
         let weekStart = Date.today().previous(.monday, considerToday: true)
         workouts
             .filter { $0.endDate >= weekStart }
-            .map{ Float(($0.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0) }
+            .map{ ($0.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0 }
             .forEach { list.append($0) }
 
         return list
     }
 
-    var weeklyDistanceThisYear: [(Int, Float)] {
+    var weeklyDistanceThisYear: [(Int, Double)] {
         var dict = Dictionary(grouping: workouts) {
             Calendar.current.component(.weekOfYear, from: $0.endDate)
-        }.mapValues { (weekGroup: [HKWorkout]) -> Float in
-            weekGroup.reduce(0, { (result, workout) -> Float in
-                let v = result + Float(workout.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0
-                return Float(v)
+        }.mapValues { (weekGroup: [HKWorkout]) -> Double in
+            weekGroup.reduce(0, { (result, workout) -> Double in
+                result + (workout.totalDistance?.doubleValue(for: .meter()) ?? 0) / 1000.0
             })
         }
 

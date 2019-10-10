@@ -5,12 +5,12 @@
 import UIKit
 
 struct WeeklyProgressViewModel {
-    let goalDistance: Float
-    let weeklyDistances: [Float]
+    let goalDistance: Double
+    let weeklyDistances: [Double]
 }
 
 private extension WeeklyProgressViewModel {
-    var distance: Float {
+    var distance: Double {
         return weeklyDistances.reduce(0, +)
     }
 }
@@ -37,8 +37,8 @@ class WeeklyProgress: Panel {
         return label
     }()
 
-    private lazy var progressBar: ProgressBar = {
-        let bar = ProgressBar(progressColor: .candyGreen, progress: CGFloat(viewModel.distance / viewModel.goalDistance))
+    private lazy var progressBar: MultiSegmentProgressBar = {
+        let bar = MultiSegmentProgressBar(rawSegmentValues: viewModel.weeklyDistances, goalValue: viewModel.goalDistance)
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()

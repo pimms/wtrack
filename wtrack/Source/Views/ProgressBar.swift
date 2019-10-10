@@ -93,7 +93,7 @@ class ProgressBar: ProgressBarBase {
     // MARK: - Private properties
 
     private let progressColor: UIColor
-    private let progress: CGFloat
+    private let progress: Double
 
     // MARK: - UI properties
 
@@ -113,7 +113,7 @@ class ProgressBar: ProgressBarBase {
         fatalError()
     }
 
-    init(progressColor: UIColor, progress: CGFloat) {
+    init(progressColor: UIColor, progress: Double) {
         self.progressColor = progressColor
         self.progress = {
             if progress < 0 {
@@ -135,7 +135,7 @@ class ProgressBar: ProgressBarBase {
             progressBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             progressBar.topAnchor.constraint(equalTo: topAnchor),
             progressBar.bottomAnchor.constraint(equalTo: bottomAnchor),
-            progressBar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: progress)
+            progressBar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: CGFloat(progress))
         ])
     }
 }
