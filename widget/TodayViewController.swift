@@ -32,6 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
 
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        updateYearlyVisibility()
     }
 
     // MARK: - Updating
@@ -61,14 +62,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private func updateViews() {
         guard let workoutRepository = workoutRepository else { return }
 
-        let expanded = extensionContext?.widgetActiveDisplayMode == .expanded
-        yearlyProgressPanel?.isHidden = !expanded
-
         let progressCalculator = ProgressCalculator(goalRepository: goalRepository, workoutRepository: workoutRepository)
         let weeklyModel = progressCalculator.weeklyProgress()
         let yearlyModel = progressCalculator.yearlyProgress()
 
         weeklyProgressPanel?.setProgress(progressValues: weeklyModel.weeklyDistances, goal: weeklyModel.goalDistance)
         yearlyProgressPanel?.setProgress(progressValues: [yearlyModel.currentValue], goal: yearlyModel.goalValue)
+
+        updateYearlyVisibility()
+    }
+
+    private func updateYearlyVisibility() {
+        let expanded = extensionContext?.widgetActiveDisplayMode == .expanded
+        yearlyProgressPanel?.isHidden = !expanded
     }
 }

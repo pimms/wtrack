@@ -22,6 +22,9 @@ class TodayPanel: UIView {
 
         progressBarContainer?.clipsToBounds = true
         progressBarContainer?.layer.cornerRadius = 2
+
+        setTitleText("")
+        setDetailText("")
     }
 
     func setTitleText(_ text: String) {

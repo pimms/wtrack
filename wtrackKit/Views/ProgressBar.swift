@@ -21,7 +21,7 @@ public class ProgressBarBase: UIView {
     // MARK: - UI properties
 
     fileprivate lazy var backgroundBar: Bar = {
-        let bar = Bar(color: UIColor.systemGray5)
+        let bar = Bar(color: UIColor.systemGray5.withAlphaComponent(0.5))
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
