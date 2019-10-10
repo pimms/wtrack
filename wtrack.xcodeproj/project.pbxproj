@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1953D273234F1DC90065DEB9 /* SeedableRNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1953D272234F1DC90065DEB9 /* SeedableRNG.swift */; };
 		19DA48772287FED000EEA4C6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DA48762287FED000EEA4C6 /* HealthKit.framework */; };
 		65BAA0901291933CCC3959CE /* WeeklyProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA3E5D70A5ADB504085F6 /* WeeklyProgress.swift */; };
 		65BAA0FAC2665F9140075592 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAA2DB92A0407A1AE214EC /* CGPoint.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1953D272234F1DC90065DEB9 /* SeedableRNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedableRNG.swift; sourceTree = "<group>"; };
 		19DA485F2287FEC200EEA4C6 /* wtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wtrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DA48762287FED000EEA4C6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		19F5D4932288030D00207FBB /* wtrack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wtrack.entitlements; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				65BAA8AEA96E0BE0647C8F0A /* Label */,
 				65BAA662E39E4C80D633CB0D /* Extensions */,
 				65BAA416813C5B98A3C8D9A4 /* Protocols */,
+				1953D272234F1DC90065DEB9 /* SeedableRNG.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				65BAA80945A428D3927A58D3 /* Button.swift in Sources */,
 				65BAA3B93E2BA98B73F09E52 /* Button+Style.swift in Sources */,
 				65BAAC65A82A60A04F38AAB0 /* Label.swift in Sources */,
+				1953D273234F1DC90065DEB9 /* SeedableRNG.swift in Sources */,
 				65BAAB59E354BCEA11DEDB14 /* Label+Style.swift in Sources */,
 				65BAAEF4F15652EA54B3A4EA /* Layout.swift in Sources */,
 				65BAA0FAC2665F9140075592 /* CGPoint.swift in Sources */,
@@ -441,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -496,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

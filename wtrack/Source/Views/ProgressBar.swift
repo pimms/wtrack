@@ -86,6 +86,8 @@ class ProgressBarBase: UIView {
     }
 }
 
+// MARK: - ProgressBar
+
 class ProgressBar: ProgressBarBase {
 
     // MARK: - Private properties
@@ -135,5 +137,84 @@ class ProgressBar: ProgressBarBase {
             progressBar.bottomAnchor.constraint(equalTo: bottomAnchor),
             progressBar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: progress)
         ])
+    }
+}
+
+// MARK: - MultiSegmentProgressBar
+
+class MultiSegmentProgressBar: ProgressBarBase {
+    var rawSegmentValues: [Double] { didSet { resetBars() } }
+    var goalValue: Double? { didSet { updateGoalMarker() } }
+
+    private var bars: [Bar] = []
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+
+    required init(rawSegmentValues: [Double], goalValue: Double?) {
+        self.rawSegmentValues = rawSegmentValues
+        self.goalValue = goalValue
+        super.init(frame: .zero)
+
+        updateGoalMarker()
+        setupBars()
+    }
+
+    private func resetBars() {
+        removeBars()
+        setupBars()
+    }
+
+    private func removeBars() {
+        backgroundBar.subviews.forEach { $0.removeFromSuperview() }
+    }
+
+    private func setupBars() {
+        let sum = rawSegmentValues.reduce(0, +)
+        let widthDenominator = max(goalValue ?? sum, sum)
+
+        let fractionValues = rawSegmentValues.map { CGFloat($0 / widthDenominator) }
+        let colors = colorArray()
+        var index: Int = 0
+        var trailingEdgeAnchor = backgroundBar.leadingAnchor
+
+        for segmentFraction in fractionValues {
+            let color = colors[index % colors.count]
+            index += 1
+
+            let bar = Bar(color: color)
+            bar.translatesAutoresizingMaskIntoConstraints = false
+            backgroundBar.addSubview(bar)
+
+            NSLayoutConstraint.activate([
+                bar.leadingAnchor.constraint(equalTo: trailingEdgeAnchor),
+                bar.topAnchor.constraint(equalTo: backgroundBar.topAnchor),
+                bar.bottomAnchor.constraint(equalTo: backgroundBar.bottomAnchor),
+                bar.widthAnchor.constraint(equalTo: backgroundBar.widthAnchor, multiplier: segmentFraction)
+            ])
+
+            trailingEdgeAnchor = bar.trailingAnchor
+        }
+    }
+
+    private func updateGoalMarker() {
+        let sum = rawSegmentValues.reduce(0, +)
+
+        if let goal = goalValue, sum > goal {
+            markerFraction = CGFloat(goal / sum)
+        } else {
+            markerFraction = nil
+        }
+    }
+
+    private func colorArray() -> [UIColor] {
+        let colors: [UIColor] = [ .systemYellow, .systemBlue, .systemGreen, .systemPink ]
+
+        let rounded = rawSegmentValues.map { Int($0) }
+        let seed = rounded.reduce(0, +)
+        var rng = SeedableRNG(seed: seed)
+
+        return colors.shuffled(using: &rng)
     }
 }
