@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1933B1E42376BADF00B52A6C /* RunStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1933B1E32376BADF00B52A6C /* RunStatisticsView.swift */; };
+		1933B1E62376C03600B52A6C /* HKWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1933B1E52376C03600B52A6C /* HKWorkout.swift */; };
 		1953D27A234F28D00065DEB9 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1953D279234F28D00065DEB9 /* NotificationCenter.framework */; };
 		1953D27D234F28D00065DEB9 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1953D27C234F28D00065DEB9 /* TodayViewController.swift */; };
 		1953D280234F28D00065DEB9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1953D27E234F28D00065DEB9 /* MainInterface.storyboard */; };
@@ -104,6 +106,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1933B1E32376BADF00B52A6C /* RunStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStatisticsView.swift; sourceTree = "<group>"; };
+		1933B1E52376C03600B52A6C /* HKWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKWorkout.swift; sourceTree = "<group>"; };
 		1953D272234F1DC90065DEB9 /* SeedableRNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedableRNG.swift; sourceTree = "<group>"; };
 		1953D278234F28D00065DEB9 /* Run Progress.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Run Progress.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1953D279234F28D00065DEB9 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -211,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				19BE1BFD234F30BB006E4CE7 /* HKHealthStore.swift */,
+				1933B1E52376C03600B52A6C /* HKWorkout.swift */,
 			);
 			path = HealthKit;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 				65BAA9AE97B2887B75FEDBCB /* Bar.swift */,
 				65BAA84538E154FCA2E21D81 /* ProgressBar.swift */,
 				65BAA3E5D70A5ADB504085F6 /* WeeklyProgress.swift */,
+				1933B1E32376BADF00B52A6C /* RunStatisticsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				1953D2A9234F29E50065DEB9 /* Label+Style.swift in Sources */,
 				1953D2A5234F29E50065DEB9 /* Spacing.swift in Sources */,
 				1953D2B0234F29E50065DEB9 /* UIAlertController.swift in Sources */,
+				1933B1E42376BADF00B52A6C /* RunStatisticsView.swift in Sources */,
 				1953D2A4234F29E50065DEB9 /* Colors.swift in Sources */,
 				1953D2B2234F29E50065DEB9 /* String.swift in Sources */,
 				1953D2AA234F29E50065DEB9 /* Layout.swift in Sources */,
@@ -592,6 +599,7 @@
 				1953D2AB234F29E50065DEB9 /* CGPoint.swift in Sources */,
 				1953D29B234F29E50065DEB9 /* WorkoutRepository.swift in Sources */,
 				1953D2A8234F29E50065DEB9 /* Label.swift in Sources */,
+				1933B1E62376C03600B52A6C /* HKWorkout.swift in Sources */,
 				1953D2A1234F29E50065DEB9 /* ProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

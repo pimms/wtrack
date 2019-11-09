@@ -87,6 +87,7 @@ extension MainViewController: UITableViewDataSource {
     private enum TableContent: Int, CaseIterable {
         case weeklyProgress
         case yearlyProgress
+        case statistics
     }
 
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,6 +120,8 @@ extension MainViewController: UITableViewDataSource {
             return YearlyProgress(progress: progressCalculator.yearlyProgress())
         case .weeklyProgress:
             return WeeklyProgress(viewModel: progressCalculator.weeklyProgress())
+        case .statistics:
+            return RunStatisticsView(workoutRepository: workoutRepository)
         }
     }
 }

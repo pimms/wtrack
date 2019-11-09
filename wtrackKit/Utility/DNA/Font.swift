@@ -19,12 +19,12 @@ extension UIFont {
         return UIFont.boldSystemFont(ofSize: 22)
     }
 
-    static var title4: UIFont {
-        return UIFont.boldSystemFont(ofSize: 16)
-    }
-
     static var body: UIFont {
         return UIFont.systemFont(ofSize: 16)
+    }
+
+    static var bodyStrong: UIFont {
+        return UIFont.boldSystemFont(ofSize: 16)
     }
 
     static var detail : UIFont {

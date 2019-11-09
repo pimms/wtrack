@@ -26,7 +26,7 @@ public class WeeklyProgress: Panel {
     // MARK: - UI properties
 
     private lazy var titleLabel: Label = {
-        let label = Label(style: .title4)
+        let label = Label(style: .bodyStrong)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Weekly progress"
         return label
